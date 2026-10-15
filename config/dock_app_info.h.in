@@ -1,0 +1,34 @@
+/**
+ ********************************************************************
+ * @copyright (c) 2026 DJI. All rights reserved.
+ *
+ * Credential / connection config template.
+ * dock_app_info.h is generated from dock_app_info.h.in at CMake configure time.
+ * Third-party vendors: replace the placeholder values below with the real credentials obtained from the DJI developer platform.
+ ********************************************************************
+ */
+#ifndef DOCK_APP_INFO_H
+#define DOCK_APP_INFO_H
+
+/* ---- Developer credentials (obtained from the DJI developer platform) ---- */
+#define DOCK_APP_ID        "@DOCK_APP_ID@"
+#define DOCK_APP_KEY       "@DOCK_APP_KEY@"
+#define DOCK_APP_LICENSE   "@DOCK_APP_LICENSE@"
+#define DOCK_APP_NAME      "@DOCK_APP_NAME@"
+
+/* ---- This third-party dock (dt5) device SN ---- */
+#define DOCK_DEVICE_SN     "@DOCK_DEVICE_SN@"
+
+/* ---- The RID (dt7) device SN. A SEPARATE identity from dt5: the account
+ * "<app_id>_esdk_<sn>" is both the MQTT client_id and the topic owner segment. If dt5 and dt7
+ * share one SN, whichever connects SECOND is refused with CONNACK rc=5 (not authorised).
+ * Default "<DOCK_DEVICE_SN>_rid" (or DOCK_DEVICE_SN itself in an RID-only build);
+ * override with cmake -DDOCK_RID_SN=... ---- */
+#define DOCK_RID_DEVICE_SN "@DOCK_RID_DEVICE_SN@"
+
+/* ---- O4 broker ---- */
+/* Default address to fall back to when UDP(18830) broadcast auto-discovery fails. */
+#define DOCK_BROKER_FALLBACK_IP   "@DOCK_BROKER_FALLBACK_IP@"
+#define DOCK_BROKER_PORT          @DOCK_BROKER_PORT@
+
+#endif /* DOCK_APP_INFO_H */
